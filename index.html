@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!------------------- Обработчик событий   ------------------>
+    <script type="text/javascript">
+        function incSize(event) {
+            var width = Number(event.target.style.width.substring(0, event.target.style.width.length -2));
+            event.target.style.width = (width + 35) + "px";
+            $("<p>Координаты мышки при нажатии x - " + event.screenX + ", y - " + event.screenY + "</p>").insertAfter("div:last");
+        }
+
+        $(document).ready(function () {
+            $("div").bind("click", incSize);
+            $(document).on("click", "p", function () {
+                alert("Test");
+            });
+        });
+    </script>
+
+
+    <!------------------- Манипулиирование класс   ------------------>
+    <!--<style>
+        .div_1{
+            background-color: red;
+        }
+        .div_2{
+            background-color: green;
+        }
+    </style>-->
+    <!------------------- Функций val   ------------------>
+    <!--<script type="text/javascript">
+        function val() {
+            var text = $("#text").val();
+            alert(text);
+        }
+
+    </script>
+-->
+</head>
+<body>
+<!------------------- Обработчик событий   ------------------>
+<div style="height: 50px; width: 50px; background-color: red"></div>
+<div style="height: 50px; width: 50px; background-color: blue"></div>
+<div style="height: 50px; width: 50px; background-color: green"></div>
+<!------------------- Функций val   ------------------>
+<!--<input type="text" id="text" name="text">
+<input type="button" onclick="return val()" value="Готово">-->
+<!------------------- Создание элементов   ------------------>
+
+<!--<div>Блок</div>
+
+<script type="text/javascript">
+    $("<p>Неболшой текст</p>").prependTo("div");
+    $("<p>Insert Before</p>").insertBefore("div");
+    $("<p>Insert After</p>").insertAfter("div");
+</script>-->
+<!------------------- Удаление элементов   ------------------>
+<!--<div id="div"><p>Абзац</p></div>
+<div id="div_2" style="background-color: red"></div>
+<img src="1.jpg">
+<img src="2.jpg">
+<img src="3.jpg">
+<a href="#">1</a>
+<a href="#">2</a>
+<script type="text/javascript">
+    $("div").append("<span>Просто текст</span>");
+    $("img").appendTo($("#div_2"));
+    $("a").wrap("<h1 style='background-color: greenyellow'></h1>");
+
+    $("#div").remove();
+    $("#div_2").empty();
+
+</script>-->
+
+
+<!------------------- Добавление элементов   ------------------>
+<!--<div id="div"><p>Абзац</p></div>
+<div id="div_2" style="background-color: red"></div>
+<img src="1.jpg">
+<img src="2.jpg">
+<img src="3.jpg">
+<a href="#">1</a>
+<a href="#">2</a>
+<script type="text/javascript">
+    $("div").append("<span>Просто текст</span>");
+    $("img").appendTo($("#div_2"));
+    $("a").wrap("<h1 style='background-color: greenyellow'></h1>");
+
+</script>-->
+
+
+<!------------------- Клонирование   ------------------>
+<!--<div id="div" style="background-color: red">
+    Блок
+    <p>Новый абзац</p>
+</div>
+
+<script type="text/javascript">
+    var block = $("#div").clone();
+    block.html("<p>Абзашка</p>");
+    block.css("font-size", "40px");
+    block.css("width", "200px");
+
+    $("body").append(block);
+</script>-->
+
+
+<!------------------- Манипулиирование стил   ------------------>
+<!--<div id="div">Блок</div>
+
+<script type="text/javascript">
+    $("#div").css("font-size", "25px");
+    $("#div").css("color", "red");
+    $("#div").css("width", "250px");
+    $("#div").css("background-color", function () {
+        return "blue";
+    });
+
+    $("#div").css("height", function () {
+        var height = prompt("Введите высоту:");
+        return height + "px";
+    });
+
+</script>-->
+
+<!------------------- Манипулиирование класс   ------------------>
+<!--<div id="div">TEXT</div>
+<script type="text/javascript">
+    var div = prompt("1 или 2?")
+    while (div != 1 && div != 2) {
+        alert("Введите число 1 или 2");
+        div = prompt("1 ил 2");
+    }
+    $("#div").attr("class", "div_" + div);
+
+</script>-->
+
+<!------------------- Работа с атрибутами   ------------------>
+<!--    <img src="1.jpg" alt="Изображение" title="Изображение"><br>
+    <img src="2.jpg" ><br>
+    <img src="3.jpg" ><br>
+    <img src="4.jpg" alt="Изображение" title="Изображение">
+
+<script type="text/javascript">
+    $(":not(img[alt])").attr("alt", 'jQuery');
+
+    var elements = $("img");
+    var text = "";
+    for (var i = 0; i < elements.length; i++) {
+        text += elements[i].alt + "\n";
+        alert(text);
+    }
+</script>-->
+
+<!------------------- Отбор элементов   ------------------>
+    <!--<ul id="menu">
+        <li><a href="">Ссылка 1</a></li>
+        <li><a href="">Ссылка 2</a></li>
+        <li><a href="">Ссылка 3</a></li>
+        <li><a href="">Ссылка 4</a></li>
+        <li><a href="">Ссылка 5</a></li>
+    </ul>
+
+    <script type="text/javascript">
+        var link = $("#menu li a:first");
+        alert(link.html());
+
+        link = $("#menu li a:eq(2)");
+        alert(link.html());
+    </script>-->
+
+    <!------------------- Выбор по тегам   ------------------>
+    <!-- <script type="text/javascript">
+        var test = $('div');
+        alert(test.length);
+
+        var img = $('img[title]');
+        alert(img.length);
+    </script>-->
+
+
+
+  <!------------------- Выбор элемениа по ID   ------------------>
+    <!--<script type="text/javascript">
+        var str = "     str     ";
+        alert(str);
+        alert($.trim(str));
+    </script>-->
+
+    <!------------------- Выбор элемениа по CLASS   ------------------>
+    <!--<script type="text/javascript">
+        var test = $('div.test');
+        for(var i = 0; i < test.length; i++) {
+            test.get(i).style.color = "red";
+        }
+
+        setTimeout("$('p.test').get(0).style.color = 'green'", 2000);
+    </script>-->
+</body>
+</html>
